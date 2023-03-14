@@ -1,0 +1,381 @@
+@font-face {
+    font-family: 'Milky Honey';
+    src: url('milky_honey-webfont.woff2') format('woff2'),
+         url('milky_honey-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root {
+    /** colour **/
+    --navy: #0c263e;
+    --dk-navy: #071629;
+    --orange: #e75a2f;
+    --dk-orange: #bc4123;
+    /** fonts **/
+    --honey-font: 'Milky Honey', cursive;
+    --roboto: 'Roboto', sans-serif;
+}
+
+/* Utility Classes */
+
+.inner-container {
+    padding: 3rem 1rem;
+    margin: auto;
+    max-width: 90rem;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sr-only {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+header .inner-container {
+    padding: 1rem;
+}
+
+/* Typography */
+
+body {
+    background-color: #fff;
+    color: var(--dk-navy);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+ul li { list-style: none; }
+
+h1 a,
+h2,
+h3 {
+    font-family: var(--honey-font);
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    background: linear-gradient(270deg, rgba(231,90,47,1) 0%, rgba(188,65,35,1) 100%);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    border-radius: 0.4rem;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.btn:hover {
+    background: var(--orange);
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--dk-navy);
+    border-bottom: 1px solid #fff;
+}
+
+.toggle-btn {
+    cursor: pointer;
+    color: #fff;
+    fill: #fff;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+}
+.toggle-btn svg path { fill: #fff; }
+
+.toggle-btn:hover svg path,
+.toggle-btn:hover p {
+    color: var(--orange);
+    fill: var(--orange);
+}
+
+svg,
+header img {
+    max-width: 2rem;
+}
+
+nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+.active-state {
+    max-height: 100vh;
+}
+
+.main-menu li {
+    line-height: 2.5rem;
+}
+/* .main-menu li a {
+    padding: 1rem;
+} */
+
+/** style the first link and bring arrow up beside the <a> tag */
+.first-link {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.first-link img {
+    width: 1rem;
+    margin-left: 1rem;
+    /** option 2 **/
+    /* display: inline-block;
+    vertical-align: middle; */
+}
+
+/** hide the arrows on small screens **/
+.first-link img,
+.tier-two span{ 
+    display: none; 
+}
+
+/** hover state **/
+nav li a:hover {
+    color: var(--orange);
+}
+
+/** sign-in / sign-up Area **/
+.members {
+    border-top: 1px solid #fff;
+    padding-top: 1rem;
+}
+.members,
+.members li {
+    display: flex;
+    justify-content: flex-start;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.members li {
+    margin-left: 2rem;
+}
+
+.members li a {
+    border-radius: 2rem;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.members li a:hover { color: #fff; }
+
+/** style & hide the hover svgs **/
+.members li img {
+    max-height: 3rem;
+    visibility: hidden;
+}
+
+.members li:hover img { visibility: visible; }
+
+/** Main Styles **/
+
+/** fixing some of the widths of the sections to only allow the span so far **/
+main section.inner-container,
+.scrim .inner-container,
+footer .inner-container  {
+    max-width: 40rem;
+    margin: auto
+}
+
+/** intro section **/
+.intro {
+    font-size: 1.5em;
+    margin-bottom: 2rem;
+}
+
+.intro img {
+    max-width: 15rem;
+    border-radius: 50%;
+}
+
+/** stats section **/
+.banner {
+    background: url('../img/dugge.webp') right / cover;
+}
+
+.scrim {
+    background-color: rgba(0,0,0,0.2);
+}
+
+aside {
+    color: #fff;
+}
+
+aside .flex-container {
+    flex-wrap: wrap;
+}
+
+.cell {
+    min-width: calc(100% / 2 - 0.5rem);
+    padding: 1rem;
+}
+
+aside h3 {
+    width: 100%;
+}
+
+aside h4 {
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--orange);
+    margin: 0.5rem 0;
+}
+
+aside p {
+    margin: 0;
+}
+
+/** photo container - layering of images **/
+.photo-container {
+    height: calc(15rem + 35vw);
+    max-height: 30rem;
+    max-width: 40rem; /** adding a max-width constricts the images so they stop growing with the viewport. */
+    position: relative;
+}
+
+.photo-container img {
+    position: absolute;
+}
+
+.photo-container img:first-of-type {
+    top: 5.75rem;
+}
+.photo-container img:last-of-type {
+    left: 2rem;
+    height: 85%;
+    top: 7.5%;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--dk-navy);
+    color: #fff;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer h3 {
+    padding-bottom: 1rem;
+}
+
+footer p:last-of-type {
+    margin: 0;
+}
+
+footer div div {
+    text-align: left;
+    padding: 1rem 0;
+}
+
+footer a {
+    text-decoration: underline;
+}
+
+
+
+@media screen and (min-width: 800px) {
+    .toggle-btn { display: none; }
+
+    .wide-flex {
+        display: flex;
+        /* justify-content: space-between; */
+        align-items: center;
+    }
+
+    header div.inner-container > .flex-container {
+        flex: 1 0 auto;
+        align-items: center;
+    }
+
+    header div.inner-container > nav {
+        flex: 1 0 auto;
+    }
+
+    nav {
+        max-height: unset;
+        overflow: visible;
+        white-space: nowrap;
+    }
+
+    .main-menu {
+        display: flex;
+        margin: 0;
+        justify-content: flex-end;
+    }
+    .main-menu li { position: relative; }
+
+    .main-menu > li {margin: 1rem; }
+
+    .tier-two,
+    .tier-three {
+        position: absolute;
+        min-width: 100%;
+        background-color: var(--dk-navy);
+        padding: 1rem;
+        visibility: hidden;
+    }
+
+    .tier-two {
+        left: 0;
+        text-align: right;
+    }
+
+    .tier-three {
+        left: 100%;
+        text-align: left;
+        top: -1rem;
+    }
+
+    /** hover states **/
+    .main-menu li:hover > .tier-two,
+    .tier-two li:hover > .tier-three {
+        visibility: visible;
+    }
+
+    .first-link img, 
+    .tier-two span {
+        display: inline;
+    }
+
+    /** members **/
+    .members {
+        border-top: none;
+        margin: 0;
+        padding: 0;
+        margin-left: auto;
+    }
+    .members li { margin: 0 0.75rem; }
+}
